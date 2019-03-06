@@ -1,0 +1,61 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Yokdil Calisma";
+}
+<div class="container mt-5 text-center">
+    <h2>Yanıtlar</h2>
+    <button type="button" class="btn btn-success col-md-3 mt-2">Doğru Sayısı <span class="badge">@Model.trueAnswer</span></button>
+    <button type="button" class="btn btn-danger col-md-3 mt-2">Yanlış Sayısı <span class="badge">@Model.falseAnswer</span></button>
+    <button type="button" class="btn btn-primary col-md-3 mt-2">Boş Sayısı <span class="badge">@Model.emptyAnswer</span></button>
+    <input type="hidden" asp-for="@Model.trueAnswer" />
+    <input type="hidden" asp-for="@Model.falseAnswer" />
+    <input type="hidden" asp-for="@Model.emptyAnswer" />
+    <div class="col-md-12">
+        <label class="text-@ViewBag.color mt-5">@ViewBag.warn</label>
+    </div>
+</div>
+<form asp-controller="Home" asp-action="Index" role="form" method="post">
+    <div class="container mt-5">
+        <br />
+        <div class="row">
+            @for (int i = 0; i < Model.viewWordList.Count; i++)
+            {
+                <div class="col-md-6 mt-4">
+                    <div class="list-group">
+                        <label class="list-group-item list-group-item-action @Model.viewWordList[i].warning">@Model.viewWordList[i].kelimeler.Ingilizce <b>(@Model.viewWordList[i].kelimeler.Tip)</b></label>
+                        <input type="hidden" asp-for="@Model.viewWordList[i].kelimeler.ID" />
+                        <input type="hidden" asp-for="@Model.viewWordList[i].kelimeler.Ingilizce" />
+                        <input type="hidden" asp-for="@Model.viewWordList[i].kelimeler.Tip" />
+                    </div>
+                    @for (int j = 0; j < Model.viewWordList[i].answerList.Count; j++)
+                    {
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="form-check">
+                                    <label class="mycontainer">
+                                        <input type="radio" asp-for="@Model.viewWordList[i].answer" value="@Model.viewWordList[i].answerList[j].ID">
+                                        @Model.viewWordList[i].answerList[j].Turkce  <b class="text-danger">--</b> @Model.viewWordList[i].answerList[j].YanAnlam
+                                        <input type="hidden" asp-for="@Model.viewWordList[i].answerList[j].ID">
+                                        <input type="hidden" asp-for="@Model.viewWordList[i].answerList[j].YanAnlam">
+                                        <input type="hidden" asp-for="@Model.viewWordList[i].answerList[j].Turkce">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    }
+                </div>
+            }
+
+            <div class="col-md-6 mt-4 text-center">
+                <input type="submit" class="btn btn-outline-primary col-md-10" value="Kontrol Et" />
+            </div>
+            <div class="col-md-6 mt-4 text-center">
+                <a asp-route="/Home/Index" class="btn btn-outline-primary col-md-10">Yeni Soru Getir</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
