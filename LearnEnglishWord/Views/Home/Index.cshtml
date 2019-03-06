@@ -22,9 +22,9 @@
             {
                 <div class="col-md-6 mt-4">
                     <div class="list-group">
-                        <label class="list-group-item list-group-item-action @Model.viewWordList[i].warning">@Model.viewWordList[i].kelimeler.Ingilizce <b>(@Model.viewWordList[i].kelimeler.Tip)</b></label>
+                        <label class="list-group-item list-group-item-action @Model.viewWordList[i].warning">@Model.viewWordList[i].kelimeler.YanAnlam <b>(@Model.viewWordList[i].kelimeler.Tip)</b></label>
                         <input type="hidden" asp-for="@Model.viewWordList[i].kelimeler.ID" />
-                        <input type="hidden" asp-for="@Model.viewWordList[i].kelimeler.Ingilizce" />
+                        <input type="hidden" asp-for="@Model.viewWordList[i].kelimeler.YanAnlam" />
                         <input type="hidden" asp-for="@Model.viewWordList[i].kelimeler.Tip" />
                     </div>
                     @for (int j = 0; j < Model.viewWordList[i].answerList.Count; j++)
@@ -34,9 +34,9 @@
                                 <div class="form-check">
                                     <label class="mycontainer">
                                         <input type="radio" asp-for="@Model.viewWordList[i].answer" value="@Model.viewWordList[i].answerList[j].ID">
-                                        @Model.viewWordList[i].answerList[j].Turkce  <b class="text-danger">--</b> @Model.viewWordList[i].answerList[j].YanAnlam
+                                        @Model.viewWordList[i].answerList[j].Ingilizce<i class="showText"> -- @Model.viewWordList[i].answerList[j].Turkce</i>
                                         <input type="hidden" asp-for="@Model.viewWordList[i].answerList[j].ID">
-                                        <input type="hidden" asp-for="@Model.viewWordList[i].answerList[j].YanAnlam">
+                                        <input type="hidden" asp-for="@Model.viewWordList[i].answerList[j].Ingilizce">
                                         <input type="hidden" asp-for="@Model.viewWordList[i].answerList[j].Turkce">
                                         <span class="checkmark"></span>
                                     </label>

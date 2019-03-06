@@ -11,7 +11,7 @@
     user-select: none;
 }
 
-/* Hide the browser's default radio button */
+    /* Hide the browser's default radio button */
     .mycontainer input {
         position: absolute;
         opacity: 0;
@@ -60,3 +60,15 @@
     border-radius: 50%;
     background: white;
 }
+
+label {
+    word-wrap: break-word !important;
+}
+
+.showText {
+    color: white !important;
+}
+
+    .showText:hover {
+        color: black !important;
+    }

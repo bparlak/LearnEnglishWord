@@ -57,7 +57,7 @@ namespace LearnEnglishWord.Controllers
             model.trueAnswer = 0;
             model.falseAnswer = 0;
             model.emptyAnswer = 0;
-            ViewBag.warn = "Mavi yerlerde verilen ingilizce kelimelerin türkçe karşılığı ve yakın anlamını şıklar arasından seçerek aşağıdaki kontrol et butonu ile cevaplarınızı kontrol edebilirsiniz.";
+            ViewBag.warn = "Mavi alanda verilen kelimelerin karşılığını şıklar arasından seçerek aşağıdaki kontrol et butonu ile cevaplarınızı kontrol edebilirsiniz.";
             ViewBag.color = "primary";
             return View(model);
         }
